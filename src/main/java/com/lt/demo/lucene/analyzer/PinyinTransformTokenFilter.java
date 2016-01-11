@@ -221,8 +221,12 @@ public class PinyinTransformTokenFilter extends TokenFilter {
                         this.typeAtt.setType("all_pinyin");
                     } else if ("short".equalsIgnoreCase(this.charType)) {
                         this.typeAtt.setType("short_pinyin");
-                    } else {
+                    }else if("quan".equalsIgnoreCase(this.charType))
+                    {
                         this.typeAtt.setType("quan_pinyin");
+                    }
+                    else {
+                        throw new IOException("charType set error,only support quan,all,short");
                     }
 
                     this.termIteRead = true;
